@@ -1,0 +1,212 @@
+.hidden {
+    visibility: hidden;
+}
+
+/* login box - initial interface */
+#login-box {
+    border: 1px solid chocolate;
+    width: min(30vw, 30vh);
+    height: min(30vw, 30vh);
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*login header is the first child of login box*/
+#login-header {
+    align-self: center;
+    color: chocolate;
+    font-family: Bahnschrift, ui-serif;
+}
+
+/*input-form is the second child of login box*/
+#input-form {
+    color: chocolate;
+    display: flex;
+    flex-direction: column;
+    padding: 10% 20%;
+}
+
+/*send-username-btn is the third child of login box*/
+#send-username-btn {
+    align-self: center;
+    border: none;
+    cursor: pointer;
+    background-color: coral;
+    margin-top: 1em;
+}
+
+/*it shows up when inserted usernam is invalid*/
+.popup-visible {
+    color: red;
+    transition: opacity 0.5s ease-out;
+    opacity: 1;
+}
+
+#chat-container-with-header {
+    min-width: 300px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 10vh 25vw 10vh 10vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#public-chat-btn {
+    border: 2px solid #cbacef;
+    background-color: #cbacef;
+    color: #1e53ff;
+    font-weight: bold;
+    font-size: small;
+    cursor: pointer;
+}
+
+#chat-with {
+    border: 2px solid aliceblue;
+    background-color: aliceblue;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: dodgerblue;
+}
+
+#chat-container {
+    border: 2px solid aliceblue;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+#users {
+    border: 2px solid aliceblue;
+    position: relative;
+    width: 25%;
+    flex-shrink: 0;
+    flex-direction: column;
+    overflow-y: auto;
+    display: flex;
+}
+
+.chat-button {
+    border: none;
+    border-bottom: 1px solid #cbdbfc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1% 0;
+    white-space: nowrap;
+    background-color: aliceblue;
+    color: dodgerblue;
+    font-weight: bold;
+    height: 5%;
+    cursor: pointer;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user {
+    color: dodgerblue;
+    font-weight: bold;
+    text-align: left;
+}
+
+.new-message-counter {
+    color: dodgerblue;
+    font-weight: bold;
+    text-align: right;
+    margin-left: auto;
+}
+
+#chat-box {
+    border: 2px solid aliceblue;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+#messages {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.message-container {
+    border-bottom: 2px solid aliceblue;
+    display: flex;
+    flex-direction: column;
+    margin: 0 3%;
+}
+
+.message-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.sender {
+    align-self: flex-start;
+    flex-grow: 1;
+    color: dodgerblue;
+}
+
+.date {
+    color: dodgerblue;
+    font-size: x-small;
+}
+
+#msg-form {
+    margin-top: auto;
+}
+
+#input-msg-box {
+    display: flex;
+    background-color: aliceblue;
+}
+
+#input-msg {
+    min-height: 25px;
+    max-height: 35px;
+    flex-grow: 1;
+    height: 5vh;
+    border: none;
+    background: inherit;
+}
+
+#input-msg:focus {
+    outline: none;
+}
+
+#send-msg-btn {
+    border: none;
+    background: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+#send-msg-btn img {
+    display: block;
+    min-height: 20px;
+    min-width: 20px;
+    max-width: 30px;
+    max-height: 30px;
+    width: 4vh;
+    height: auto;
+}

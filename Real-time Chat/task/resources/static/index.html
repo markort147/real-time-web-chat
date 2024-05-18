@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+</head>
+<body>
+<div id="login-box">
+<!--<div id="login-box" class="hidden">-->
+    <h1 id="login-header">Please, login...</h1>
+    <form id="input-form">
+        <label for="input-username" id="login-input-username-label">
+            Enter your username:
+        </label>
+        <input id="input-username" placeholder="username"/>
+        <button id="send-username-btn" type='button'>Login</button>
+    </form>
+</div>
+<div id="chat-container-with-header" class="hidden">
+<!--<div id="chat-container-with-header">-->
+    <div id="chat-header">
+        <button id="public-chat-btn" type="button">Go to public chat</button>
+        <div id="chat-with">Public chat</div>
+    </div>
+    <div id="chat-container">
+        <div id="users">
+            <!--            <button class="chat-button user-container" type="button" id="amo_container"><div id="amo" class="user">amo</div></button>-->
+        </div>
+        <div id="chat-box">
+            <div id="messages">
+                <!--                <div class="message-container"><div class="message-header"><div class="sender">asd</div><div class="date">18/5/2024, 12:50:34</div></div><div class="message">eheh</div></div>-->
+                <!--                <div class="message-container"><div class="message-header"><div class="sender">asd</div><div class="date">18/5/2024, 12:50:34</div></div><div class="message">eheh</div></div>-->
+                <!--                <div class="message-container"><div class="message-header"><div class="sender">asd</div><div class="date">18/5/2024, 12:50:34</div></div><div class="message">eheh</div></div>-->
+            </div>
+            <form id="msg-form">
+                <div id="input-msg-box">
+                    <input id="input-msg" placeholder="Type a message" aria-label="Type a message"/>
+                    <button id="send-msg-btn" type='button'>
+                        <img src="/images/send_msg.png" alt="send-msg"/>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
