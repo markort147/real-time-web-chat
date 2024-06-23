@@ -87,7 +87,6 @@ function buildMessageElement(message) {
 
 function refreshOnlineUsers(users) {
     onlineUsers.replaceChildren();
-    // createPublicChatButton();
     users.forEach(user => {
         const userNode = document.getElementById(user.username)
         if (!userNode && user.username !== currentUser) createNewOnlineUser(user.username);
@@ -248,7 +247,7 @@ function loadOnlineUsers() {
 function onMessageReceived(payload) {
     const message = JSON.parse(payload.body);
     switch (message.type) {
-        case "CHAT":
+        case "CHAT": {
             const publicMsg_whilePublicChat = !message.private && chatWith.innerText === PUBLIC_CHAT_CONTENT;
             const privateMsg_byCurrUser = message.private && currentUser === message.sender;
             const privateMsg_toCurrUser = message.private && currentUser === message.receiver;
@@ -265,18 +264,21 @@ function onMessageReceived(payload) {
                 moveChatButtonToTop(message.sender);
                 let counter = document.getElementById(message.sender + '_counter');
                 if (!counter) {
-                    counter = initNewMessageCounter(counter, message.sender);
+                    counter = initNewMessageCounter(message.sender);
                 }
                 incrementMessageCounter(counter);
             }
 
             break;
-        case "JOIN":
+        }
+        case "JOIN": {
             loadOnlineUsers();
             break;
-        case 'LEAVE':
+        }
+        case 'LEAVE': {
             document.getElementById(message.sender + '_container').remove();
             break;
+        }
     }
 }
 
@@ -287,8 +289,8 @@ function moveChatButtonToTop(user) {
     onlineUsers.prepend(userContainer);
 }
 
-function initNewMessageCounter(counter, user) {
-    counter = document.createElement("div");
+function initNewMessageCounter(user) {
+    const counter = document.createElement("div");
     counter.textContent = '0';
     counter.id = user + '_counter';
     counter.classList.add('new-message-counter')
