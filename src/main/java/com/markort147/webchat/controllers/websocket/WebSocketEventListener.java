@@ -1,9 +1,8 @@
-package chat.controllers.websocket;
+package com.markort147.webchat.controllers.websocket;
 
-import chat.models.ChatMessage;
-import chat.services.ChatUsersService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.markort147.webchat.models.ChatMessage;
+import com.markort147.webchat.services.ChatUsersService;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
@@ -15,9 +14,8 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 import java.util.Objects;
 
 @Component
+@Log
 public class WebSocketEventListener {
-
-    Logger logger = LoggerFactory.getLogger(WebSocketEventListener.class);
 
     private final SimpMessageSendingOperations messagingTemplate;
     private final ChatUsersService chatUsersService;
@@ -30,7 +28,7 @@ public class WebSocketEventListener {
 
     @EventListener
     public void handleWebSocketConnectListener(SessionConnectedEvent event) {
-        logger.info("WebSocket connected");
+        log.info("WebSocket connected");
     }
 
     @EventListener
@@ -39,7 +37,7 @@ public class WebSocketEventListener {
 
         String username = (String) Objects.requireNonNull(headerAccessor.getSessionAttributes()).get("username");
         if (username != null) {
-            logger.info("User disconnected: %s".formatted(username));
+            log.info("User disconnected: %s".formatted(username));
 
             ChatMessage chatMessage = new ChatMessage();
             chatMessage.setType(ChatMessage.MessageType.LEAVE);

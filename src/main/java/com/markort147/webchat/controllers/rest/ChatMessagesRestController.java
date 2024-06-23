@@ -1,9 +1,7 @@
-package chat.controllers.rest;
+package com.markort147.webchat.controllers.rest;
 
-import chat.models.ChatMessage;
-import chat.services.ChatMessagesService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.markort147.webchat.models.ChatMessage;
+import com.markort147.webchat.services.ChatMessagesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/messages")
 public class ChatMessagesRestController {
-
-    Logger logger = LoggerFactory.getLogger(ChatMessagesRestController.class);
 
     private final ChatMessagesService chatMessagesService;
 

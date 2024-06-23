@@ -1,7 +1,6 @@
-package chat.services;
+package com.markort147.webchat.services;
 
-import chat.models.ChatMessage;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.markort147.webchat.models.ChatMessage;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,14 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Service
 public class ChatMessagesService {
 
-    private final ChatUsersService chatUsersService;
-
     private static final List<ChatMessage> messages = new CopyOnWriteArrayList<>();
-
-    @Autowired
-    public ChatMessagesService(ChatUsersService chatUsersService) {
-        this.chatUsersService = chatUsersService;
-    }
 
     public void addMessage(ChatMessage message) {
         messages.add(message);

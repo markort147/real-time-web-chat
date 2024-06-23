@@ -1,7 +1,7 @@
-package chat.controllers.rest;
+package com.markort147.webchat.controllers.rest;
 
-import chat.models.ChatUser;
-import chat.services.ChatUsersService;
+import com.markort147.webchat.models.ChatUser;
+import com.markort147.webchat.services.ChatUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

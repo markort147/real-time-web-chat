@@ -1,10 +1,9 @@
-package chat.controllers.websocket;
+package com.markort147.webchat.controllers.websocket;
 
-import chat.models.ChatMessage;
-import chat.services.ChatMessagesService;
-import chat.services.ChatUsersService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.markort147.webchat.models.ChatMessage;
+import com.markort147.webchat.services.ChatMessagesService;
+import com.markort147.webchat.services.ChatUsersService;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -15,9 +14,8 @@ import org.springframework.stereotype.Controller;
 import java.util.Objects;
 
 @Controller
+@Log
 public class ChatWSController {
-
-    Logger logger = LoggerFactory.getLogger(ChatWSController.class);
 
     private final ChatUsersService chatUsersService;
     private final ChatMessagesService chatMessagesService;
@@ -31,7 +29,7 @@ public class ChatWSController {
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
     public ChatMessage sendMessage(@Payload ChatMessage message) {
-        logger.info("sendMessage() message: {}", message.getContent());
+        log.info("sendMessage() message: %s".formatted(message.getContent()));
         chatMessagesService.addMessage(message);
         return message;
     }
@@ -40,7 +38,7 @@ public class ChatWSController {
     @SendTo("/topic/public")
     public ChatMessage addUser(@Payload ChatMessage message, SimpMessageHeaderAccessor headerAccessor) {
         String username = message.getSender();
-        logger.info("addUser() user: {}", username);
+        log.info("addUser() user: %s".formatted(username));
             chatUsersService.getByUsername(username)
                             .ifPresentOrElse(
                                     user -> chatUsersService.setOnline(username),

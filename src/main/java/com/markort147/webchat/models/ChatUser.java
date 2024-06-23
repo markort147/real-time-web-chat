@@ -1,4 +1,4 @@
-package chat.models;
+package com.markort147.webchat.models;
 
 import lombok.Data;
 

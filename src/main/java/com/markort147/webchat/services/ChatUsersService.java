@@ -1,6 +1,6 @@
-package chat.services;
+package com.markort147.webchat.services;
 
-import chat.models.ChatUser;
+import com.markort147.webchat.models.ChatUser;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
