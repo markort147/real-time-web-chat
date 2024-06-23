@@ -1,14 +1,10 @@
 package chat.services;
 
 import chat.models.ChatMessage;
-import chat.models.ChatUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service
